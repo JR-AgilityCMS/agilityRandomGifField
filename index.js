@@ -54,7 +54,7 @@ if (componentToRender === 'AppConfig') {
     let giphyApiKey = sdk.configValues.giphyApiKey;
 
 
-    imgElem.src = sdk.fieldValue;
+    imgElem.src = sdk.field.value;
 
 
     regenButt.onclick = () => {
