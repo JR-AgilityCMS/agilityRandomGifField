@@ -14,7 +14,7 @@ const getRandomGif = async apiKey => {
     })
   });
   let json = await resp.json();
-  return json.data.original.url;
+  return json.data.images.original.url;
 }
 
 //standard app config
