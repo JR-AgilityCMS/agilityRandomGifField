@@ -60,7 +60,7 @@ if (componentToRender === 'AppConfig') {
     regenButt.onclick = () => {
       getRandomGif(giphyApiKey).then(url => {
         imgElem.src = url;
-        sdk.updateFieldValue({ fieldValue: e.target.value });
+        sdk.updateFieldValue({ fieldValue: url });
       });
     }
 
