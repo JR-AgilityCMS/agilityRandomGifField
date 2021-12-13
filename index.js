@@ -1,12 +1,10 @@
-import {GiphyFetch} from "@giphy/js-fetch-api";
-
 const el = id => document.getElementById(id);
 
-// const getRandomGif = async apiKey => {
-//   let resp = await fetch("https://api.giphy.com/v1/gifs/random", {headers: {apikey: apiKey}});
-//   let json = await resp.json();
-//   return json.data.url;
-// }
+const getRandomGif = async apiKey => {
+  let resp = await fetch("https://api.giphy.com/v1/gifs/random", {headers: {apikey: apiKey}});
+  let json = await resp.json();
+  return json.data.url;
+}
 
 //standard app config
 let appConfig = {
@@ -42,8 +40,9 @@ if(componentToRender === 'AppConfig') {
       let imgElem = el("imgElem");
       let regenButt = el("regenButt");
 
-      const gf = new GiphyFetch(sdk.configValues.giphyApiKey)
-      gf.random().then(resp => imgElem.src = JSON.stringify(resp));
+      let giphyApiKey = sdk.configValues.giphyApiKey;
+
+      getRandomGif(giphyApiKey).then(url => imgElem.src = url);
 
       regenButt.onclick = () => {
         getRandomGif(giphyApiKey).then(url => imgElem.src = url);
