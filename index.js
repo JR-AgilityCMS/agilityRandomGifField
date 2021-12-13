@@ -1,4 +1,4 @@
-const {GiphyFetch} = require("@giphy/js-fetch-api");
+import {GiphyFetch} from "@giphy/js-fetch-api";
 
 const el = id => document.getElementById(id);
 
