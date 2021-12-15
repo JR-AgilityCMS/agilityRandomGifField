@@ -46,7 +46,7 @@ if (componentToRender === 'AppConfig') {
   //show the HTML for this UI component
   fieldContainer.style.display = 'block';
 
-  agilityAppSDK.initializeField({ containerRef: fieldContainer }).then(function (sdk) {
+  agilityAppSDK.initializeField({ containerRef: fieldContainer }).then(async sdk => {
     //when communication is established with the CMS
     let imgElem = el("imgElem");
     let regenButt = el("regenButt");
@@ -54,7 +54,7 @@ if (componentToRender === 'AppConfig') {
     let giphyApiKey = sdk.configValues.giphyApiKey;
 
 
-    imgElem.src = sdk.field.value;
+    imgElem.src = sdk.field.value ?? (await getRandomGif(giphyApiKey));
 
 
     regenButt.onclick = () => {
