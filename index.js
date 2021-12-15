@@ -54,13 +54,13 @@ if (componentToRender === 'AppConfig') {
     let giphyApiKey = sdk.configValues.giphyApiKey;
 
     const setImg = async () => {
-      let src = sdk.field.value ?? (await getRandomGif(giphyApiKey));
-      imgElem.src = src;
-      sdk.updateFieldValue({fieldValue: src});
+      let url = sdk.field.value ?? (await getRandomGif(giphyApiKey));
+      imgElem.src = url;
+      sdk.updateFieldValue({fieldValue: url});
     }
 
     setImg();
-    regenButt.onclick = setImg;
+    regenButt.onclick = () => setImg();
 
   })
 } 
